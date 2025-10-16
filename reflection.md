@@ -1,0 +1,11 @@
+1. Which issues were the easiest to fix, and which were the hardest? Why?
+Easiest: The style-related issues from Flake8 and Pylint (like function names, line length, and spacing) were the easiest. They were mechanical changes that didn't require deep logical thinking.
+Hardest: The global-statement issue was the most challenging. It wasn't just a one-line fix; it required refactoring the entire script's architecture to pass state through function arguments instead of relying on a global variable. This required careful thought about the flow of data through the program.
+2. Did the static analysis tools report any false positives?
+No, in this particular lab, all the issues reported by the tools were valid and pointed to genuine areas for improvement in code quality, security, or style.
+3. How would you integrate static analysis tools into your actual software development workflow?
+I would integrate them automatically using pre-commit hooks. This would run tools like Flake8 and Bandit on my code every time I try to make a Git commit. If any issues are found, the commit is blocked until they are fixed. For team projects, I would add a step to the Continuous Integration (CI) pipeline (e.g., GitHub Actions) to run a full Pylint analysis, ensuring that no low-quality code gets merged into the main branch.
+4. What tangible improvements did you observe in the code quality, readability, or potential robustness after applying the fixes?
+Robustness: The code is significantly more robust. The addition of input validation and specific exception handling means it no longer crashes on bad data or missing files.
+Readability: The code is vastly more readable. The switch to standard snake_case names, the addition of comprehensive docstrings and type hints, and the improved formatting make it easy for another developer to understand the code's purpose and usage at a glance.
+Maintainability: The removal of the global variable makes the code much easier to maintain and debug. Each function is now more self-contained, and the flow of data is explicit, reducing the chance of unintended side effects.
